@@ -2,7 +2,7 @@ package pages
 
 import kotlinx.html.*
 
-fun buildIndexPage(data: Any) : (HTML) -> Unit {
+fun buildIndexPage(data: Any): (HTML) -> Unit {
 
     fun HTML.vis() {
         head {
@@ -11,13 +11,14 @@ fun buildIndexPage(data: Any) : (HTML) -> Unit {
             meta("viewport", "width=device-width, initial-scale=1")
             meta("theme-color", "#212529")
 
-            link(rel= "manifest", href="/static/manifest.webmanifest")
+            link(rel = "manifest", href = "/static/manifest.webmanifest")
 
             styleLink("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css")
-            script(src= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js") {}
+            script(src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js") {}
         }
-        body("bg-dark") {
+        body("bg-dark text-light") {
             div("container-lg") {
+                id = "main"
                 nav("navbar navbar-expand-lg navbar-dark bg-secondary") {
                     div("container-fluid") {
                         a("#", classes = "navbar-brand") {
@@ -28,8 +29,8 @@ fun buildIndexPage(data: Any) : (HTML) -> Unit {
             }
 
             //JS
-            script {src = "/output.js"}
-            script {src= "/serviceworker.js"}
+            script { src = "/output.js" }
+            script { src = "/serviceworker.js" }
         }
     }
 

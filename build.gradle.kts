@@ -96,6 +96,8 @@ kotlin {
         val clientMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
+                implementation("io.ktor:ktor-client-js:$ktorVersion")
+
             }
         }
         val clientTest by getting

@@ -8,6 +8,7 @@ import io.ktor.serialization.*
 import io.ktor.util.*
 import org.koin.core.context.startKoin
 import org.slf4j.event.Level
+import routes.components
 import routes.index
 
 @KtorExperimentalAPI
@@ -47,5 +48,6 @@ internal fun Application.mainModule() {
             resources("/data")
         }
         index()
+        components()
     }
 }
