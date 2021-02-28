@@ -12,9 +12,12 @@ import org.w3c.dom.Node
 
 fun main() {
     window.onload = {
-        addHelloCard(document.getElementById("main") as Node)
-        window.navigator.serviceWorker.register("/serviceworker.js").then { regitration ->
-            println("service worker registered with scope: ${regitration.scope}")
+        //add a card
+        repeat(9) {
+            addHelloCard(document.getElementById("section-1") as Node)
+        }
+        window.navigator.serviceWorker.register("/serviceworker.js").then { registration ->
+            println("service worker registered with scope: ${registration.scope}")
         }.catch { error ->
             println("service worker registration failed: $error")
         }
@@ -31,7 +34,7 @@ fun addHelloCard(component: Node) {
 
 fun Node.createUnsafe(str: String) {
     append {
-        div {
+        div("") {
             unsafe {
                 +str
             }
