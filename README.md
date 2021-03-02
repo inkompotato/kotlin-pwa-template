@@ -6,4 +6,4 @@ includes:
 * Kotlin/JS Service Worker
 * Kotlin/JS Client
 
-This template utilizes [UIKit for](https://getuikit.com/) styling
+This template utilizes [UIKit](https://getuikit.com/) for styling
