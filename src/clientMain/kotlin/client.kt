@@ -12,10 +12,9 @@ import org.w3c.dom.Node
 
 fun main() {
     window.onload = {
-        //add a card
-        repeat(9) {
-            addHelloCard(document.getElementById("section-1") as Node)
-        }
+        //add cards
+        addHelloCards(document.getElementById("section-1") as Node)
+
         window.navigator.serviceWorker.register("/serviceworker.js").then { registration ->
             println("service worker registered with scope: ${registration.scope}")
         }.catch { error ->
@@ -26,9 +25,12 @@ fun main() {
 
 val client = HttpClient(Js) {}
 
-fun addHelloCard(component: Node) {
+fun addHelloCards(component: Node) {
     GlobalScope.launch {
-        component.createUnsafe(fetchComponent())
+        val card = fetchComponent("card")
+        repeat(9) {
+            component.createUnsafe(card)
+        }
     }
 }
 
@@ -42,6 +44,6 @@ fun Node.createUnsafe(str: String) {
     }
 }
 
-suspend fun fetchComponent(): String {
-    return client.get("http://127.0.0.1:8080/components/card")
+suspend fun fetchComponent(type: String, id: String = ""): String {
+    return client.get("http://127.0.0.1:8080/components/$type?id=$id")
 }

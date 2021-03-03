@@ -1,17 +1,13 @@
 package components
 
-import kotlinx.html.DIV
 import kotlinx.html.*
 import kotlinx.html.stream.appendHTML
-import kotlin.reflect.jvm.reflect
 
 fun getProjectCard(name: String, link: String, description: String, image: String): String {
     val text = buildString {
         appendHTML().div("uk-card uk-card-small uk-card-default") {
             div("uk-card-media-top") {
-                img(src = image, classes = "card-img-top", alt = "Cover Image") {
-                    //attributes["style"] = "max-width: 576px"
-                }
+                img(src = image, classes = "card-img-top", alt = "Cover Image") { }
             }
             div("uk-card-body") {
                 h3("uk-card-title") { +name }

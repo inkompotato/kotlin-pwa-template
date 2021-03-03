@@ -27,19 +27,20 @@ fun buildIndexPage(data: Any): (HTML) -> Unit {
                 attributes["uk-grid"] = ""
                 div("uk-width-small@l uk-height-1-1@l uk-width-auto uk-flex uk-flex-wrap uk-flex-wrap-top") {
                     //navigation
+                    id = "navigation-1"
                     div("uk-width-auto uk-width-small@l uk-padding-small") {
-                        a("#", classes = "uk-button uk-button-text") { +"ONE"}
+                        a("#", classes = "uk-button uk-button-text") { +"ONE" }
                     }
                     div("uk-width-auto uk-width-small@l uk-padding-small") {
-                        a("#", classes = "uk-button uk-button-text") { +"TWO"}
+                        a("#", classes = "uk-button uk-button-text") { +"TWO" }
                     }
                 }
-                div("uk-width-expand@l uk-width-1-1 uk-panel-scrollable" ) {
+                div("uk-width-expand@l uk-width-1-1 uk-panel-scrollable") {
                     //main
                     attributes["uk-height-viewport"] = "expand: true"
                     attributes["style"] = "resize: none"
                     ul("uk-breadcrumb") {
-                        li { a("#") { +"HOME"}}
+                        li { a("#") { +"HOME" } }
                     }
                     div("uk-child-width-auto uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-6@xl uk-grid-small") {
                         attributes["uk-grid"] = ""
@@ -48,7 +49,10 @@ fun buildIndexPage(data: Any): (HTML) -> Unit {
                 }
             }
             //floating button + modal
-            button(classes= "uk-icon-button uk-position-medium uk-position-bottom-right uk-position-absolute", type= ButtonType.button) {
+            button(
+                classes = "uk-icon-button uk-position-medium uk-position-bottom-right uk-position-absolute",
+                type = ButtonType.button
+            ) {
                 attributes["uk-icon"] = "plus"
                 attributes["uk-toggle"] = "target: #action-modal"
             }
@@ -56,11 +60,14 @@ fun buildIndexPage(data: Any): (HTML) -> Unit {
                 id = "action-modal"
                 attributes["uk-modal"] = ""
                 div("uk-modal-dialog uk-modal-body") {
-                    button(type= ButtonType.button, classes = "uk-modal-close-default") {
+                    button(type = ButtonType.button, classes = "uk-modal-close-default") {
                         attributes["uk-close"] = ""
                     }
                     h2("uk-modal-title") { +"MODAL TITLE" }
-                    p { +"MODAL CONTENT"}
+                    div {
+                        id = "modal-1"
+                        +"MODAL CONTENT"
+                    }
                 }
             }
             //JS

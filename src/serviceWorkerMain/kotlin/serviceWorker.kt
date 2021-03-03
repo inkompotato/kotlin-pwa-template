@@ -36,7 +36,7 @@ fun installServiceWorker() {
 
     self.addEventListener("fetch", { event ->
         event as FetchEvent
-        if(event.request.url.contains("http").not()) return@addEventListener
+        if (event.request.url.contains("http").not()) return@addEventListener
 
         scope.async {
             val cache = self.caches.open(MAIN_CACHE).await()
